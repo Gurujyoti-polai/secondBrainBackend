@@ -9,11 +9,21 @@ import {
 
 const router = Router();
 
+router.post(
+  "/",
+  verifyToken,
+  (req, res, next) => {
+    console.log("✅ GET /api/notes inisde router");
+    next();
+  },
+  createNote
+);
+
 router.get(
   "/",
   verifyToken,
   (req, res, next) => {
-    console.log("✅ GET /api/notes inside router");
+    console.log("✅ POST /api/notes inside router");
     next();
   },
   getMyNotes
